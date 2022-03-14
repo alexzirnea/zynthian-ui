@@ -1607,13 +1607,16 @@ class zynthian_gui:
 				self.status_info['overtemp'] = False
 				try:
 					# Get ARM flags
+					'''
+					#TODO implement these features on armbian
 					res = check_output(("vcgencmd", "get_throttled")).decode('utf-8','ignore')
 					thr = int(res[12:],16)
 					if thr & 0x1:
 						self.status_info['undervoltage'] = True
 					elif thr & (0x4 | 0x2):
 						self.status_info['overtemp'] = True
-
+					'''
+					pass
 				except Exception as e:
 					logging.error(e)
 
